@@ -11,6 +11,9 @@ import org.springframework.web.server.ResponseStatusException;
 import com.igaogl.moviemaster.model.User;
 import com.igaogl.moviemaster.repository.UserRepository;
 
+// adicionar criptografia de senha
+// adicionar relacionamento de user com movies
+
 @Service
 public class UserService {
     

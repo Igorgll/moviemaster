@@ -6,7 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "PERSON")
@@ -17,15 +17,15 @@ public class User {
     @Column(name = "USER_ID")
     private int userId;
 
-    @NotEmpty(message = "Name cannot be null.")
+    @NotNull(message = "Name cannot be null.")
     @Column(name = "NAME")
     private String name;
 
-    @NotEmpty(message = "Username cannot be null.")
+    @NotNull(message = "Username cannot be null.")
     @Column(name = "USER_NAME")
     private String userName;
 
-    @NotEmpty(message = "Password cannot be null.")
+    @NotNull(message = "Password cannot be null.")
     @Column(name = "PASSWORD")
     private String password;
 

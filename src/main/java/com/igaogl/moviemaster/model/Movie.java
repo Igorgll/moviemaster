@@ -6,7 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "MOVIE")
@@ -16,16 +16,31 @@ public class Movie {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int movieId;
 
-    @NotEmpty(message = "Movie name cannot be null.")
+    @NotNull(message = "Movie name cannot be null.")
     @Column(name = "MOVIE_NAME")
     private String movieName; 
     // private User user;
 
+    @NotNull(message = "Movie Year cannot be null.")
+    @Column(name = "MOVIE_YEAR")
+    private int year;
+
+    @NotNull(message = "Genre cannot be null.")
+    @Column(name = "MOVIE_GENRE")
+    private String genre;
+
+    @NotNull(message = "Movie rating cannot be null.")
+    @Column(name = "MOVIE_RATING")
+    private int rating;
+
     public Movie(){}
 
-    public Movie(int movieId, String movieName) {
+    public Movie(int movieId, String movieName, int year, String genre, int rating) {
         this.movieId = movieId;
         this.movieName = movieName;
+        this.year = year;
+        this.genre = genre;
+        this.rating = rating;
     }
 
     public int getMovieId() {
@@ -42,5 +57,29 @@ public class Movie {
 
     public void setMovieName(String movieName) {
         this.movieName = movieName;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
     }
 }
